@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html language="en">
+<head>
+    <title>Home</title>
+    <%- include('./partials/style'); %>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <%- include('./partials/header'); %>
+        <!-- Content -->
+        <h4>List of <%= students.length %> students</h4>
+        <div class="row p-3">
+            <% for(let i=0; i<students.length; i++) { %>
+                <div class="col-sm-4">
+                    <div class="card mb-3" style="max-width: 18rem;">
+                        <div class="card-header text-white bg-primary">Student #<%= i+1 %></div>
+                        <div class="card-body bg-light">
+                            <h5 class="card-title"><%= students[i].firstname + " " + students[i].lastname %></h5>
+                            <p class="card-text">Age: <%= students[i].age %><br>e-mail: <%= students[i].email %></p>
+                        </div>
+                    </div>
+                </div>
+            <% } %>
+        </div>
+        <!-- Footer -->
+        <%- include('./partials/footer'); %>
+    </div>
+</body>
+</html>
